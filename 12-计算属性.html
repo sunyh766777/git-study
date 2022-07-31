@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+<body>
+  <div id="app">
+        <p>总价为：{{total}}</p>
+  </div>
+
+  <script>
+    let vm = new Vue({
+      el: "#app",
+      data: {
+        arr: [
+            {name: 'vue入门', print: 99, count: 3},
+            {name: 'vue进阶', print: 29, count: 3},
+            {name: 'vue大神', print: 9, count: 3}
+        ]
+      },
+      computed: {
+        // 计算属性第一种格式
+        // total() {
+        //     let ret = this.arr.reduce((pre, current)=>{
+        //         return current.print * current.count + pre
+        //     }, 0)
+        //     return ret + "元"
+        // }
+        // 计算属性第二种格式
+        total: {
+            // 在模板里第一次获取total这个计算属性的时候执行这里的代码一次
+            get() {
+                let ret = this.arr.reduce((pre, current)=>{
+                    return current.print * current.count + pre
+                }, 0)
+                return ret + "元"
+            },
+            set(newVal) {
+                // 参与计算属性的变量值发生变化，会触发这个方法.将新值传给newVal
+                console.log("触发了" , newVal)
+            }
+        }
+      }
+      
+    })
+
+  </script>
+</body>
+</html>
