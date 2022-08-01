@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 1、输入触发函数，自动传递参数为输入内容 -->
+    <div><input type="text"  v-model="textNum" @input="add" ></div>
+    <!-- 2、由于输入触发函数就执行一句命令，完全可以省略函数书写，将执行逻辑直接写到属性中 -->
+    <div><input type="text" v-model="textNum" @input="textNum = e.target.value"></div>
+    <!-- 3、进一步简化，可以使用vue提供的函数/对象进一步简化     $event:事件对象-->   
+    <!-- $开头的，表示是vue提供的对象或者方法 -->
+    <div><input type="text" :value="textNum" @input="textNum = $event.target.value"></div>
+    <div>值为：{{textNum}}</div>
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        textNum: "初始值"
+      },
+      methods: {
+        add(e) {
+            this.textNum = e.target.value
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
