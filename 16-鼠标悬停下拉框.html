@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item,index in project" @mouseleave="project[index].isShow = false">
+                <p @mouseenter="project[index].isShow = true">{{item.name}}</p>
+                <div v-show="item.isShow">
+                    <div v-for="sub_item in item.list">{{sub_item}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                project: [
+                    { name: "项目一", list: ["vue", "vue二"], isShow: false },
+                    { name: "项目二", list: ["java", "java二"], isShow: false },
+                    { name: "项目三", list: ["c++", "c++二"], isShow: false },
+                ]
+            }
+        })
+
+    </script>
+</body>
+
+<style>
+    ul li {
+        list-style: none;
+        float: left;
+    }
+</style>
+
+</html>
