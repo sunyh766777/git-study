@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
 
-    <div>
+  <div>
 
-    </div>
+  </div>
 
-    <script>
-        var arr = [
-            {name: 'vue入门', print: 99, count: 3},
-            {name: 'vue进阶', print: 29, count: 3},
-            {name: 'vue大神', print: 9, count: 3}
-        ] 
+  <script>
+    var arr = [
+      { name: 'vue入门', print: 99, count: 3 },
+      { name: 'vue进阶', print: 29, count: 3 },
+      { name: 'vue大神', print: 9, count: 3 }
+    ]
 
-        // 每遍历数组元素一次，这里面的代码就会执行一次
-        // pre是上一次遍历的返回值，current当前正在遍历的这个元素
-        // ret最终会接收最后一个返回值
-        let ret = arr.reduce((pre, current)=>{
-            return current.print * current.count + pre
-        }, 0)  // 这个0是pre的初始值
-        console.log(ret)
-    </script>
-    
+    // 每遍历数组元素一次，这里面的代码就会执行一次
+    // pre是上一次遍历的返回值，current当前正在遍历的这个元素
+    // ret最终会接收最后一个返回值
+    let ret = arr.reduce((pre, current) => {
+      return current.print * current.count + pre
+    }, 0)  // 这个0是pre的初始值
+    console.log(ret)
+  </script>
+
 </body>
+
 </html>

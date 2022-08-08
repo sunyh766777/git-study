@@ -14,16 +14,13 @@
       {{price | RMBformat}}
    </div>
    <script>
+      Vue.filte("RMBformat", value=>{
+         return value.toFixed(2) + '元'
+      })
       new Vue({
          el: "#app",
          data: {
             price: 100
-         },
-         filters: {
-            // 自定义局部过滤器
-            RMBformat(value) {
-               return value.toFixed(2) + '元'
-            }
          }
       })
    </script>

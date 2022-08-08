@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="D:\Web\前端js包\vue.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
 </head>
+
 <body>
 
-  <div id="app">
-    <p>{{num}}</p>
-    <p><button v-on:click="num++">点击加一</button></p>
-    <p><button @click="add('hello')">点击加一</button></p>
-  </div>
+   <div id="app">
+      <p>{{num}}</p>
+      <p><button v-on:click="num++">点击加一</button></p>
+      <p><button @click="add('hello')">点击加一</button></p>
+   </div>
 
-  <script>
-    new Vue({
-      el: "#app",
-      data: {
-        num: 30
-      },
-      methods : {
-        add: function(id) {
-          this.num ++
-          alert(id)
-        }
-      }
-    })
-  </script>
-  
+   <script>
+      new Vue({
+         el: "#app",
+         data: {
+            num: 30
+         },
+         methods: {
+            add: function (id) {
+               this.num++
+               alert(id)
+            }
+         }
+      })
+   </script>
+
 </body>
+
 </html>

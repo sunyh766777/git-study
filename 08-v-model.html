@@ -2,31 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="D:\Web\前端js包\vue.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
 </head>
 
 <body>
-  <div id="app">
-    {{mag}}
-  <br />
-  <input type="text"  v-model="mag" />
-</div>
+   <div id="app">
+      {{mag}}
+      <br />
+      <input type="text" v-model="mag" />
+   </div>
 
-<script>
-    new Vue({
-        el:"#app",
-        data(){
-            return{
-                mag:"100"
+   <script>
+      new Vue({
+         el: "#app",
+         data() {
+            return {
+               mag: "100"
             }
-        }
-})
+         }
+      })
 
-    </script>
+   </script>
 </body>
 
 </html>

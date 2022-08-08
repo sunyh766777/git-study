@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="D:\Web\前端js包\vue.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
 </head>
+
 <body>
-  <div id="app" style="border-radius: 5px; border: 2px solid red;  margin-left:800px; margin-right: 800px;">
-    <template v-for="i in message">
-        <div :class="i.who==='A'?'location1':'location2'">{{i.who}}:{{i.words}}</div>
-    </template>
-    <div>
-      <select id="who" v-model="ifAorB">
-        <option value="A">A:</option>
-        <option value="B">B:</option>
-      </select>
-      <input type="text" v-model="textValue">
-      <button @click="send">发送</button>
-    </div>
-  </div>
+   <div id="app" style="border-radius: 5px; border: 2px solid red;  margin-left:800px; margin-right: 800px;">
+      <template v-for="i in message">
+         <div :class="i.who==='A'?'location1':'location2'">{{i.who}}:{{i.words}}</div>
+      </template>
+      <div>
+         <select id="who" v-model="ifAorB">
+            <option value="A">A:</option>
+            <option value="B">B:</option>
+         </select>
+         <input type="text" v-model="textValue">
+         <button @click="send">发送</button>
+      </div>
+   </div>
 
-<script>
-  new Vue({
-    el: "#app",
-    data: {
-      message: [
-      {who:"A", words:"吃饭了吗？"},
-      {who:"B", words:"刚吃完!"}
-      ],
-      textValue: null,
-      ifAorB: 'A',
-    },
-    methods : {
-      send(){
-        if(this.textValue === '' || this.textValue === null) {
-          alert("输入为空");
-          return
-        }
-        this.message.push({who:this.ifAorB, words:this.textValue})
-        this.textValue = null
+   <script>
+      new Vue({
+         el: "#app",
+         data: {
+            message: [
+               { who: "A", words: "吃饭了吗？" },
+               { who: "B", words: "刚吃完!" }
+            ],
+            textValue: null,
+            ifAorB: 'A',
+         },
+         methods: {
+            send() {
+               if (this.textValue === '' || this.textValue === null) {
+                  alert("输入为空");
+                  return
+               }
+               this.message.push({ who: this.ifAorB, words: this.textValue })
+               this.textValue = null
+            }
+         }
+      })
+   </script>
+
+   <style>
+      .location1 {
+         margin-right: 180px;
+         background-color: rgba(255, 0, 0, 0.3);
       }
-    }
-  })
-</script>
 
-<style>
-  .location1{
-    margin-right:180px;
-    background-color: rgba(255, 0, 0, 0.3);
-  }
-  .location2{
-    margin-left:180px;
-    background-color: rgba(0, 0, 255, 0.3);
-  }
-</style>
+      .location2 {
+         margin-left: 180px;
+         background-color: rgba(0, 0, 255, 0.3);
+      }
+   </style>
 
 </body>
+
 </html>

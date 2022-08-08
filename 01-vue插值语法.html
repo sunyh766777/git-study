@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>day01体验vue</title>
-  <script src="D:\Web\前端js包\vue.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>day01体验vue</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
 </head>
 
 <body>
-  <div id="app">
+   <div id="app">
       <p>较大的那一个值为：{{num>num1?num:num1}}</p>
       <!-- 先变为字符串, -->
-      <p>将字符串反转{{str.split("").reverse().join("")}}</p>   
-  </div>
+      <p>将字符串反转{{str.split("").reverse().join("")}}</p>
+   </div>
 
-  <script>
-    new Vue({
-      el: "#app",
-      data: {
-        num: 100,
-        num1: 200,
-        str: "helloWord"
-      }
-    })
-  </script>
+   <script>
+      new Vue({
+         el: "#app",
+         data: {
+            num: 100,
+            num1: 200,
+            str: "helloWord"
+         }
+      })
+   </script>
 
 
 </body>

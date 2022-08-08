@@ -2,100 +2,100 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="D:\Web\前端js包\vue.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
 </head>
 
 <body>
-  <div id="app">
-    <table>
-      <tr>
-        <th v-for="item in total">{{item}}</th>
-      </tr>
+   <div id="app">
+      <table>
+         <tr>
+            <th v-for="item in total">{{item}}</th>
+         </tr>
 
-      <tr v-for="name,index in books">
-        <td>{{index}}</td>
-        <td>{{name.name}}</td>
-        <td><button @click="sub(index)">-</button>{{name.date}}<button @click="add(index)">+</button></td>
-        <td>{{'$' + name.money}}</td>
-        <td><button @click="deleteById(index)">删除</button></td>
-      </tr>
-      <tr>
-        <td colspan="6" style="text-align: right;">总价:{{num}}</td>
-      </tr>
-    </table>
-  </div>
+         <tr v-for="name,index in books">
+            <td>{{index}}</td>
+            <td>{{name.name}}</td>
+            <td><button @click="sub(index)">-</button>{{name.date}}<button @click="add(index)">+</button></td>
+            <td>{{'$' + name.money}}</td>
+            <td><button @click="deleteById(index)">删除</button></td>
+         </tr>
+         <tr>
+            <td colspan="6" style="text-align: right;">总价:{{num}}</td>
+         </tr>
+      </table>
+   </div>
 
-  <script>
-    new Vue({
-      el: "#app",
-      data: {
-        total: ["编号", "书籍名称", "数量", "价格", "操作"],
-        books: [
-          {
-            name: "vue入门",
-            date: 19,
-            money: 90
-          },
-          {
-            name: "vue进阶",
-            date: 19,
-            money: 90
-          },
-          {
-            name: "vue大神",
-            date: 19,
-            money: 90
-          }
-        ]
-      },
-      methods: {
-        // 删除数组中某一项
-        deleteById: function (index) {
-          this.books.splice(index, 1)
-        },
-        // 修改数组中内容
-        add: function(index) {
-          let book = this.books[index]
-          ++book.date
-          this.books.splice(index,1,book)
-        },
-        // 修改数组中内容
-        sub: function(index) {
-          let book = this.books[index]
-          --book.date
-          this.books.splice(index,1,book)
-        }
-      },
-      computed: {
-        num() {
-          let total = this.books.reduce((pre, current) => {
-            return current.date * current.money + pre
-          }, 0)
-          return "$" + total + "元"
-        }
-      }
-    })
-  </script>
+   <script>
+      new Vue({
+         el: "#app",
+         data: {
+            total: ["编号", "书籍名称", "数量", "价格", "操作"],
+            books: [
+               {
+                  name: "vue入门",
+                  date: 19,
+                  money: 90
+               },
+               {
+                  name: "vue进阶",
+                  date: 19,
+                  money: 90
+               },
+               {
+                  name: "vue大神",
+                  date: 19,
+                  money: 90
+               }
+            ]
+         },
+         methods: {
+            // 删除数组中某一项
+            deleteById: function (index) {
+               this.books.splice(index, 1)
+            },
+            // 修改数组中内容
+            add: function (index) {
+               let book = this.books[index]
+               ++book.date
+               this.books.splice(index, 1, book)
+            },
+            // 修改数组中内容
+            sub: function (index) {
+               let book = this.books[index]
+               --book.date
+               this.books.splice(index, 1, book)
+            }
+         },
+         computed: {
+            num() {
+               let total = this.books.reduce((pre, current) => {
+                  return current.date * current.money + pre
+               }, 0)
+               return "$" + total + "元"
+            }
+         }
+      })
+   </script>
 </body>
 <style>
-  table,
-  th,
-  td {
-    border: 1px solid #000;
-  }
+   table,
+   th,
+   td {
+      border: 1px solid #000;
+   }
 
-  table {
-    border-collapse: collapse;
-  }
+   table {
+      border-collapse: collapse;
+   }
 
-  td,
-  th {
-    padding: 10px;
-  }
+   td,
+   th {
+      padding: 10px;
+   }
 </style>
 
 </html>

@@ -2,40 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="D:\Web\前端js包\vue.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
 </head>
 
 <body>
-    <div id="app">
-        <!-- 如果便利数组，有两个参数，参数一为值，参数二为下标 -->
-        <!-- 如果便利对象，可以有三个参数，参数一为值，参数二为键，参数三为下标 -->
-        <template v-for="(item, name, index) in user" v-bind::key="item.id">
-            <!-- v-for中 key值使用注意： -->
-            <!-- （1）建议尽可能在使用 v-for 时提供 key attribute，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升。
+   <div id="app">
+      <!-- 如果便利数组，有两个参数，参数一为值，参数二为下标 -->
+      <!-- 如果便利对象，可以有三个参数，参数一为值，参数二为键，参数三为下标 -->
+      <template v-for="(item, name, index) in user" v-bind::key="item.id">
+         <!-- v-for中 key值使用注意： -->
+         <!-- （1）建议尽可能在使用 v-for 时提供 key attribute，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升。
                  （2）因为它是 Vue 识别节点的一个通用机制，key 并不仅与 v-for 特别关联。后面我们将在指南中看到，它还具有其它用途。 
                  （3）key值尽量使用String或者int类型-->
-            <div>{{index}}:{{name}} + {{item}}</div>
-        </template>
-    </div>
+         <div>{{index}}:{{name}} + {{item}}</div>
+      </template>
+   </div>
 
-    <script>
-        var app = new Vue({
-            el: "#app",
-            data() {
-                return {
-                    user: {
-                        username: "sunyh",
-                        password: "1234",
-                        age: "18"
-                    }
-                }
-            },
-        })
-    </script>
+   <script>
+      var app = new Vue({
+         el: "#app",
+         data() {
+            return {
+               user: {
+                  username: "sunyh",
+                  password: "1234",
+                  age: "18"
+               }
+            }
+         },
+      })
+   </script>
 </body>
 
 </html>

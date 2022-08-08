@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="D:\Web\前端js包\vue.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
 </head>
+
 <body>
-  <div id="app">
-    <!-- 将p标签内的内容覆盖掉 -->
-    <p v-text="str">p标签</p>  
-    <!-- 解析html语句 -->
-    <p v-html="str1"></p>
-    <!-- 避免闪现 需要设置style-->
-    <p v-clock>{{str}}</p>
-  </div>
+   <div id="app">
+      <!-- 将p标签内的内容覆盖掉 -->
+      <p v-text="str">p标签</p>
+      <!-- 解析html语句 -->
+      <p v-html="str1"></p>
+      <!-- 避免闪现 需要设置style-->
+      <p v-clock>{{str}}</p>
+   </div>
 
-  <script>
-    new Vue({
-      el: "#app",
-      data: {
-        num: 10,
-        str: "hello",
-        str1:'<a style="color: red;">hello world</a>'
+   <script>
+      new Vue({
+         el: "#app",
+         data: {
+            num: 10,
+            str: "hello",
+            str1: '<a style="color: red;">hello world</a>'
+         }
+      })
+
+   </script>
+   <style>
+      [v-cloak] {
+         display: none;
       }
-    })
-
-  </script>
-  <style>
-    [v-cloak]{
-      display: none;
-    }
-  </style>
+   </style>
 </body>
+
 </html>
