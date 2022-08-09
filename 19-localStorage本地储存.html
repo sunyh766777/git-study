@@ -10,16 +10,29 @@
 </head>
 
 <body>
-   <div id="app">
-
-   </div>
    <script>
-      new Vue({
-         el: "#app",
-         data: {
+      // 保存在本地（磁盘），不管存入什么，都以字符串形式保存
+      localStorage.setItem('name', 'sunyh')
+      localStorage.setItem('age', 19)
+      // 获取
+      console.info(localStorage.getItem("name"))
+      // 删除指定数据
+      localStorage.removeItem("name")
+      // 清除全部
+      localStorage.clear()
 
-         }
-      })
+
+      // 对象的保存，将对象转为json字符串
+      // JSON.stringify() 方法用于将 JavaScript 值转换为 JSON 字符
+      let obj = {
+         name: "sunyh",
+         age: 19
+      }
+      localStorage.setItem("obj对象", JSON.stringify(obj))
+      // 同理获取时需要将字符串转为对象
+      console.log(JSON.parse(localStorage.getItem("obj对象")))
+      
+      localStorage.clear()
    </script>
 
 </body>

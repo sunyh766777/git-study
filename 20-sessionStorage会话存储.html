@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title></title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="css/style.css" rel="stylesheet">
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+   <script>
+      // 创建一个会话存储
+      sessionStorage.setItem("name", "sunyh")
+      // 获取指定一个
+      console.log(sessionStorage.getItem("name"))
+      // 删除指定一个
+      sessionStorage.removeItem("name")
+      // 全部清空
+      sessionStorage.clear();
+
+      // 对象储存
+      let obj = {
+         name: "sunyh",
+         age: 19
+      }
+      sessionStorage.setItem("obj", JSON.stringify(obj))
+      console.info(JSON.parse("obj"))
+   </script>
+
+</body>
+
+</html>
