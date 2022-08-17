@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title></title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="css/style.css" rel="stylesheet">
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+   <script>
+      let obj = {
+         age: 7
+      }
+
+      let val = "画画"
+
+      // 用来给对象设置属性
+      Object.defineProperty(obj, "name",
+         {
+            value: "sunyh",   // 添加name属性，值为sunyh
+            writable: true,   // 默认不可被修改,设置writable为true可修改
+            configurable: true,  // 默认不可删除,设置configurable为true可删除
+            enumerable: true   // 设置可以被遍历
+         })
+
+      // Object.defineProperty的get方法
+      Object.defineProperty(obj, "like",  // 给obj添加属性like
+         {
+            get() {   // 当获取like属性时，执行get获得返回值为like属性的值         
+               return val
+            },
+            set(newValue) {  // 当修改like属性时，执行set方法修改like属性
+               val = newValue
+            }
+         })
+      obj.like = "跑步"
+      console.log(obj.like)
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title></title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="css/style.css" rel="stylesheet">
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+
+   <dib id="app">
+      <my-header :title="tit1"></my-header>
+      <my-header :title="tit2"></my-header>
+   </dib>
+
+   <template id="temp1">
+      <div>
+         <h1>{{title}}</h1>
+      </div>
+   </template>
+
+   <script>
+      // 子组件抽取的内容
+      let myHeader = {
+         template: '#temp1',
+         // 声明myHeader这个组件有一个标签属性
+         props: ['title'],
+
+      }
+
+      new Vue({
+         el: "#app",
+         data: {
+            tit1: '购物车',
+            tit2: '分类'
+         },
+         components: {
+            // 当名字相同可以省略
+            //myHeader: myHeader
+            myHeader
+         }
+      })
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+
+   <div id="app">
+      <my-header :name="name1" :age="age1"></my-header>
+   </div>
+
+   <template id="temp">
+      <h2>我的名字叫{{name}}，我今年{{age}}岁了</h2>
+   </template>
+
+   <script>
+      let myHeader = {
+         props: ['age', 'name'],
+         template: '#temp',
+      }
+
+      new Vue({
+         el: "#app",
+         data: {
+            name1: 'sunyh',
+            age1: 12
+         },
+         components: {
+            myHeader
+         }
+      })
+   </script>
+</body>
+
+</html>

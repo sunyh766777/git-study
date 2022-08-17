@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+
+   <div id="app">
+      <!-- 2、第二步定义一个自定义事件，将事件的函数名就是父组件中的函数 -->
+      <my-head :number="father" @fn="methodName"></my-head>
+      <p>父组件的father值为：{{father}}</p>
+   </div>
+
+   <!-- 子组件模板 -->
+   <template id="temp">
+      <div>
+         <p>{{number}}</p>
+         <button @click="add">点击加一</button>
+      </div>
+   </template>
+   <script>
+
+      // 子组件数据
+      let myHead = {
+         template: '#temp',
+         props: ["number"],
+         methods: {
+            add() {
+               // 3、在vue中提供了触发自定义事件的函数（相当于此处调用了父组件的方法，给变量加上10）
+               // this.$emit('自定义事件', 参数);
+               this.$emit('fn', 10);
+            },
+         }
+      }
+
+      new Vue({
+         el: "#app",
+         data() {
+            return {
+               father: 20,
+            };
+         },
+         components: {
+            myHead
+         },
+         methods: {
+            // 1、第一步在父组件中定义一个修改父组件数据的方法
+            methodName(val) {
+               this.father = this.father + val
+            },
+         },
+      })
+
+   </script>
+</body>
+
+</html>

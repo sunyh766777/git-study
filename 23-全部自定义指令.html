@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title></title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="css/style.css" rel="stylesheet">
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+   <dib id="app">
+      <button @click="isShow = !isShow">按钮</button>
+      <P v-myshow='isShow'>哈哈哈哈</P>
+   </dib>
+   <script>
+
+      Vue.directive("myshow", {
+         // 在v-myshow指令绑定到p标签身上的时候，执行这里的代码，只执行一次
+         // el是被绑定的这个元素,binding是一个对象，记录了绑定的一些信息
+         bind(el, binding) {
+            console.log("触发自定义指令", el, binding)
+            // 页面刷新，隐藏按钮
+            el.style.display = binding.value ? "block" : "none"
+         },
+         // 被绑定标签的子节点发生变化的时候执行update
+         update(el, binding, vnode, oldVnode) {
+            el.style.display = binding.value ? "block" : "none"
+            console.log('更新：', vnode, oldVnode)
+         }
+      })
+      new Vue({
+         el: "#app",
+         data: {
+            isShow: false
+         }
+      })
+   </script>
+</body>
+
+</html>

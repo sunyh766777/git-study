@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title></title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="css/style.css" rel="stylesheet">
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+
+   <dib id="app">
+      <my-header title="购物车"></my-header>
+   </dib>
+
+   <template id="temp1">
+      <div>
+         <h1>大标题</h1>
+         <h1>{{title}}</h1>
+      </div>
+   </template>
+
+   <script>
+      new Vue({
+         el: "#app",
+         data: {
+            isShow: false
+         },
+         components: {
+            myHeader: {
+               template: '#temp1',
+               // 声明myHeader这个组件有一个标签属性
+               props: ['title']
+            }
+         }
+      })
+   </script>
+
+</body>
+
+</html>

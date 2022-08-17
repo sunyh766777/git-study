@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+   <div id="app">
+      <child1></child1>
+      <child2></child2>
+   </div>
+
+   <template id="temp1">
+      <button :style="{backgroundColor:bac}">按钮一</button>
+   </template>
+
+   <template id="temp2">
+      <button @click="hdClick">按钮二</button>
+   </template>
+
+   <script>
+
+      // 1、创建一个空的vue对象用来监听和触发自定义事件
+      let bus = new Vue()
+
+      let child1 = {
+         template: '#temp1',
+         data() {
+            return {
+               bac: 'red',
+            };
+         },
+         created() {
+            // 2、开启事件监听
+            bus.$on("changeBgc", val=>{
+               this.bac = val
+            })
+         },
+         
+      }
+
+      let child2 = {
+         template: '#temp2',
+         methods: {
+            hdClick() {
+               // 修改按钮一的颜色
+               // 3、触发第二步中自定义事件
+               bus.$emit("changeBgc", "skyblue")
+            },
+         },
+      }
+
+      new Vue({
+         el: "#app",
+         data() {
+            return {
+            };
+         },
+         components: {
+            child1,
+            child2
+         }
+      })
+
+   </script>
+</body>
+
+</html>
