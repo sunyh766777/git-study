@@ -12,18 +12,18 @@
 <body>
 
    <div id="app">
-      <!-- 1、默认情况下，浏览器不会渲染子组件中手动添加的标签
-           2、如果想要在子组件中添加标签，需要在子组件中添加slot标签来接收
-           3、slot标签上没有name属性就是匿名插槽 -->
+      <!--指定标签在子组件中的位置 -->
       <child>
-         <a>这是a标签</a>
+         <a slot="like">这是a标签</a>
+         <button slot="like1">按钮</button>
       </child>
    </div>
 
    <template id="temp1">
       <div>
+         <slot name="like"></slot>
          <h1>这是一个组件</h1>
-         <slot></slot>
+         <slot name="like1"></slot>
       </div>
    </template>
 
@@ -35,10 +35,6 @@
 
       new Vue({
          el: "#app",
-         data() {
-            return {
-            };
-         },
          components: {
             child
          }

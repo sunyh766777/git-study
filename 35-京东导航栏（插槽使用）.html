@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+   <dib id="app">
+      <my-header>
+         <input slot="input"></input>
+         <h3 slot="h3">购物车</h3>
+         <ul slot="ul">
+            <li>商品</li>
+            <li>评价</li>
+            <li>详情</li>
+         </ul>
+      </my-header>
+   </dib>
+
+   <template id="temp">
+      <div>
+         <header>
+            <div class="l">&lt;</div>
+            <div class="c">
+               <slot :name="slotName"></slot>
+            </div>
+            <div class="r">...</div>
+         </header>
+         <button @click="transition('input')">搜索</button>
+         <button @click="transition('h3')">购物车</button>
+         <button @click="transition('ul')">标题列表</button>
+      </div>
+   </template>
+
+   <script>
+
+      let myHeader = {
+         template: '#temp',
+         data() {
+            return {
+               slotName: 'input',
+            };
+         },
+         methods: {
+            transition(val) {
+               this.slotName = val
+            },
+         },
+      }
+
+      new Vue({
+         el: "#app",
+         components: {
+            myHeader
+         }
+      })
+   </script>
+</body>
+
+<style>
+   * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+   }
+
+   header {
+      width: 350px;
+      height: 50px;
+      background-color: brown;
+      display: flex;
+      text-align: center;
+   }
+
+   .l,
+   .r {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      background-color: aquamarine;
+      font-size: 30px;
+   }
+
+   .r {
+      line-height: 30px;
+   }
+
+   .c {
+      flex: 1;
+      line-height: 50px;
+   }
+
+   ul {
+      display: flex;
+      justify-content: space-around;
+   }
+</style>
+
+</html>
