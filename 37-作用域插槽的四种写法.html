@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+
+   <div id="app">
+      <!-- 第二种格式 -->
+      <my-header>
+         <template slot="btn" slot-scope="obj">
+            <button>按钮 {{obj.mynum}} </button>
+         </template>
+      </my-header>
+
+      <!-- 第三种格式 -->
+      <!-- 八原先slot="btn" slot-scope="obj" 用v-slot:btn="obj" 代替 -->
+      <my-header v-slot:btn="obj">
+         <button>按钮 {{obj.mynum}} </button>
+      </my-header>
+
+      <!-- 第四种格式 -->
+      <my-header>
+         <template v-slot:btn="obj">
+            <button>按钮 {{obj.mynum}} </button>
+         </template>
+      </my-header>
+   </div>
+
+   <template id="temp1">
+      <div>
+         <h1>sssss</h1>
+         <slot name="btn" :mynum="num"></slot>
+      </div>
+   </template>
+
+   <script>
+
+      let myHeader = {
+         template: '#temp1',
+         data() {
+            return {
+               num: 100,
+            };
+         },
+      }
+
+      new Vue({
+         el: "#app",
+         components: {
+            myHeader
+         }
+      })
+
+   </script>
+</body>
+
+</html>

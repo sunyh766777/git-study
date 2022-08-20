@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="D:\Web\前端js包\vue.js"></script>
+</head>
+
+<body>
+   <div id="app">
+      <my-header>
+         <!-- 如果不做处理，这个num的作用域在父组件 -->
+         <!-- slot-scpp专门收集所在标签（button）对应的slot身上的标签属性，作为自己的属性 -->
+         <button slot="btn" slot-scope="obj">按钮{{num}}   {{obj.mynum}}  {{obj.title}}</button>
+      </my-header>
+   </div>
+
+   <template id="temp1">
+      <div>
+         <h1>111</h1>
+         <slot name="btn" :mynum="num" title="哈哈"></slot>
+      </div>
+   </template>
+
+   <script>
+
+      let myHeader = {
+         template: '#temp1',
+         data() {
+            return {
+               num: 100,
+            };
+         },
+      }
+
+      new Vue({
+         el: "#app",
+         components: {
+            myHeader
+         },
+         data() {
+            return {
+               num: 200,
+            };
+         },
+      })
+   </script>
+
+</body>
+
+</html>
